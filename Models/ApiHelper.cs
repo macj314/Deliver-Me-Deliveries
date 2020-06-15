@@ -23,7 +23,7 @@ namespace deliver_me_deliveries.Models
     // public static async Task<string> GetAll()
     // {
     //   RestClient client = new RestClient("http://localhost:5006/api");
-    //   RestRequest request = new RestRequest($"books", Method.GET);
+    //   RestRequest request = new RestRequest($"restaurant", Method.GET);
     //   var response = await client.ExecuteTaskAsync(request);
       
     //   return response.Content;

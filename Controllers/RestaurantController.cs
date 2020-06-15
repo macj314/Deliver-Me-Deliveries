@@ -5,18 +5,17 @@ using Microsoft.EntityFrameworkCore;
 using deliver_me_deliveries.Models;
 using Microsoft.AspNetCore.Authorization;
 using System;
-using deliver_me_deliveries.Models;
 
-namespace deliver_me_deliveries.Controller
+namespace deliver_me_deliveries.Controllers
 {
 
-    [Route("api/[controller]")]
-    [ApiController]
-    public class RestaurantController : ControllerBase
+    // [Route("api/[controller]")]
+    // [ApiController]
+    public class RestaurantController : Controller
     {
 
-
         // GET api/Restaurant
+       
         public IActionResult Index()
         {
             var allRestaurants = Restaurant.GetRestaurants();
@@ -26,7 +25,7 @@ namespace deliver_me_deliveries.Controller
         [HttpGet]
         public IActionResult GetAll()
         {
-          var allRestaurants = Restaurant.GetAll();
+          var allRestaurants = Restaurant.GetRestaurants();
           return View("Index", allRestaurants);
         }
     }

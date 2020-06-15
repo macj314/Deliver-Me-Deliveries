@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace deliver_me_deliveries.Models
 {
@@ -13,30 +14,33 @@ namespace deliver_me_deliveries.Models
     public string Zip { get; }
     public List<string> FoodTypes { get; }
     public string Phone { get; }
+
+
+    public static List<Restaurant> GetRestaurants()
+    {
+      var apiCallTask = ApiHelper.GetAll("test");
+      var result = apiCallTask.Result;
+
+      JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
+      List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse.ToString());
+
+      return restaurantList;
+    }
   }
 }
 
-public static List<Restaurant> GetRestaurants()
-{
-  var apiCallTask = ApiHelper.GetAll();
-  var result = apiCallTask.Result;
 
-      JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-      List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Resturant>>(jsonResponse.ToString());
-
-      return restaurantList;
-}
 
 
     // Models
-public static List<Restaurant> SearchRestaurants()
-{
-  var apiCallTask = ApiHelper.SearchRestaurants();
-  var result = apiCallTask.Result;
-  JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-  List<Restautant> restaurantList = JsonConvert.DeserializeObject<List<Restautant>>(jsonResponse.ToString());
-  return restaurantList;
-}
+// public static List<Restaurant> SearchRestaurants()
+// {
+//   var apiCallTask = ApiHelper.SearchRestaurants();
+//   var result = apiCallTask.Result;
+//   JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
+//   List<Restautant> restaurantList = JsonConvert.DeserializeObject<List<Restautant>>(jsonResponse.ToString());
+//   return restaurantList;
+// }
 
 // {
 //             "apiKey": "364155d9f18155ceda325d7782b35bdb16a0039d4318f6d4",
