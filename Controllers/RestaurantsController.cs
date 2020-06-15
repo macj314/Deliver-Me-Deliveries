@@ -11,7 +11,7 @@ namespace deliver_me_deliveries.Controllers
 
     // [Route("api/[controller]")]
     // [ApiController]
-    public class RestaurantController : Controller
+    public class RestaurantsController : Controller
     {
 
         // GET api/Restaurant
@@ -19,6 +19,7 @@ namespace deliver_me_deliveries.Controllers
         public IActionResult Index()
         {
             var allRestaurants = Restaurant.GetRestaurants();
+            Console.WriteLine(allRestaurants[0]);
             return View(allRestaurants);
         }
 
@@ -28,5 +29,7 @@ namespace deliver_me_deliveries.Controllers
           var allRestaurants = Restaurant.GetRestaurants();
           return View("Index", allRestaurants);
         }
+
+    
     }
 }

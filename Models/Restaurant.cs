@@ -7,6 +7,7 @@ namespace deliver_me_deliveries.Models
 {
   public class Restaurant
   {
+    public int Id { get; }
     public string Name { get; }
     public string StreetAddress { get; }
     public string City { get; }
