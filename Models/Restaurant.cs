@@ -15,31 +15,30 @@ namespace deliver_me_deliveries.Models
     public string Zip { get; set; }
     public List<string> FoodTypes { get; set; }
     public string Phone { get; set; }
+    public string Latitude { get; set; }
+    public string longitude { get; set; }
+    public string minFreeDelivery { get; set; }
+    public string taxRate { get; set; }
+    public string acceptsCash { get; set; }
+    public string acceptsCard { get; set; }
+    public bool offersPickup {get;set;}
+    public bool offersDelivery {get;set;}
+    public bool isTestRestaurant {get;set;}
+    public int minWaitTime {get;set;}
+    public int maxWaitTime {get;set;}
+    public bool open {get;set;}
+    public string url {get;set;}
+    public int hours {get;set;}
+    public int deliveryMin { get; set; }
+    public string logoUrl { get; set; }
 
-    // public string Latitude {get}
-    //         latitude": 47.654014,
-    //       longitude": -122.359649,
-    //         "minFreeDelivery": -1.0000,
-    //         "taxRate": 0.0950,
-    //         "acceptsCash": true,
-    //         "acceptsCard": true,
-    //         "offersPickup": true,
-    //         "offersDelivery": true,
-    //         "isTestRestaurant": false,
-    //         "minWaitTime": 45,
-    //         "maxWaitTime": 60,
-    //         "open": false,
-    //         "url": "https://eatstreet.com/seattle-wa/restaurants/alberonas-pizza-and-pasta",
-    //         "hours":
-
-    public static List<Restaurant> GetRestaurants()
+    public static Dictionary<string, object> GetRestaurants()
     {
       var apiCallTask = ApiHelper.GetAll(EnvironmentVariables.ApiKey);
       var result = apiCallTask.Result;
-
-      JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-      List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse.ToString());
-
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      var restaurantList = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonResponse.ToString());
+      // loop through restaurant key
       return restaurantList;
     }
   }

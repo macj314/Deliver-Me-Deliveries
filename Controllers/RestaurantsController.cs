@@ -19,15 +19,21 @@ namespace deliver_me_deliveries.Controllers
         public IActionResult Index()
         {
             var allRestaurants = Restaurant.GetRestaurants();
-            return View(allRestaurants);
+            return View(allRestaurants["restaurants"]);
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
+            // string output = "?";
+            // if (Location != "")
+            // {
+            // output += $"location={Location}"
+            // }
+        
           var allRestaurants = Restaurant.GetRestaurants();
-          Console.WriteLine("--------------------------------------------------");
-          Console.WriteLine(allRestaurants);
+        //   Console.WriteLine("--------------------------------------------------");
+        //   Console.WriteLine(allRestaurants);
           return View("Index", allRestaurants);
         }
 
