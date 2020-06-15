@@ -19,7 +19,6 @@ namespace deliver_me_deliveries.Controllers
         public IActionResult Index()
         {
             var allRestaurants = Restaurant.GetRestaurants();
-            Console.WriteLine(allRestaurants[0]);
             return View(allRestaurants);
         }
 
@@ -27,6 +26,8 @@ namespace deliver_me_deliveries.Controllers
         public IActionResult GetAll()
         {
           var allRestaurants = Restaurant.GetRestaurants();
+          Console.WriteLine("--------------------------------------------------");
+          Console.WriteLine(allRestaurants);
           return View("Index", allRestaurants);
         }
 

@@ -7,19 +7,34 @@ namespace deliver_me_deliveries.Models
 {
   public class Restaurant
   {
-    public int Id { get; }
-    public string Name { get; }
-    public string StreetAddress { get; }
-    public string City { get; }
-    public string State { get; }
-    public string Zip { get; }
-    public List<string> FoodTypes { get; }
-    public string Phone { get; }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string StreetAddress { get; set; }
+    public string City { get; set; }
+    public string State { get; set; }
+    public string Zip { get; set; }
+    public List<string> FoodTypes { get; set; }
+    public string Phone { get; set; }
 
+    // public string Latitude {get}
+    //         latitude": 47.654014,
+    //       longitude": -122.359649,
+    //         "minFreeDelivery": -1.0000,
+    //         "taxRate": 0.0950,
+    //         "acceptsCash": true,
+    //         "acceptsCard": true,
+    //         "offersPickup": true,
+    //         "offersDelivery": true,
+    //         "isTestRestaurant": false,
+    //         "minWaitTime": 45,
+    //         "maxWaitTime": 60,
+    //         "open": false,
+    //         "url": "https://eatstreet.com/seattle-wa/restaurants/alberonas-pizza-and-pasta",
+    //         "hours":
 
     public static List<Restaurant> GetRestaurants()
     {
-      var apiCallTask = ApiHelper.GetAll("test");
+      var apiCallTask = ApiHelper.GetAll(EnvironmentVariables.ApiKey);
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
