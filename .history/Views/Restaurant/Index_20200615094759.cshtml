@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model deliver-me-deliveries.Models.Rating;
+
+<h4> Add A Rating for @ViewBag.City @ViewBag.PlaceId </h4>
+@* @foreach (Place p in @ViewBag.Place)
+{
+<h4>@p.City</h4>
+} *@
+@using (Html.BeginForm())
+{
+  <input type="hidden" name="PlaceId" value="@ViewBag.PlaceId" />
+
+  @Html.Label("How many stars (out of 10) would you give this place?")
+  @Html.TextBoxFor(model => model.Stars)
+
+  @Html.LabelFor(model => model.Comments)
+  @Html.TextBoxFor(model => model.Comments)
+
+  <input type="submit" value="Save" />
+}
