@@ -3,26 +3,18 @@
 }
 
 
-@model deliver_me_deliveries.Models.Restaurant;
-
 <div id="parent">
-@* 
-@foreach (KeyValuePair<string, object> entry in model)
-    {
-      if (entry.Key == "restaurants")
-      {
-        //display restaurants
-      }
-    }
+@using deliver_me_deliveries.Models;
 
-@* @foreach (Restaurant restaurant in Model)
+<ol>
+@foreach (Restaurant restaurant in Model)
 {
-  <div class="restaurant">
-    <h3><a href="/Restaurants/Details/@restaurant.Name"><p>@restaurant.Name</p></a></h3>
-    <h4> @restaurant.StreetAddress</h4>
-  </div>
-}  *@ 
-
-@* @Html.ActionLink($"page {@ViewBag.Page}", "Page", new { page = @ViewBag.Page}) *@
+    <ul>
+        <li>ID: @restaurant.Name</li>
+        <li>Name: @restaurant.StreetAddress</li>
+    </ul>
+     @* <a href="/Remedies/Details/@(remedy.RemedyId)"><p>View Details</p></a> *@
+    <br>
+}
+</ol>
 </div>
-

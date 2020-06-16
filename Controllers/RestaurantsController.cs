@@ -19,7 +19,7 @@ namespace deliver_me_deliveries.Controllers
         public IActionResult Index()
         {
             var allRestaurants = Restaurant.GetRestaurants();
-            return View();
+            return View(allRestaurants);
         }
 
         [HttpGet]
@@ -29,11 +29,11 @@ namespace deliver_me_deliveries.Controllers
           return View("Index", allRestaurants);
         }
 
-        [Route("restaurant/{search}")]
-        public IActionResult Search()
-        {
-            var searchResults = Restaurant.Search();
-            return View();
-        }
+        // [Route("restaurant/{search}")]
+        // public IActionResult Search()
+        // {
+        //     var searchResults = Restaurant.Search();
+        //     return View();
+        // }
     }
 }
