@@ -30,8 +30,15 @@ namespace deliver_me_deliveries.Models
     {
       var apiCallTask = ApiHelper.GetAll(EnvironmentVariables.ApiKey);
       var result = apiCallTask.Result;
-      // JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-      // var restaurantDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonResponse.ToString());
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse["restaurants"].ToString());
+      return restaurantList;
+    }
+
+    public static List<Restaurant> Search(string searchTerm)
+    {
+      var apiCallTask = ApiHelper.Search(searchTerm);
+      var result = apiCallTask.Result;
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse["restaurants"].ToString());
       return restaurantList;
