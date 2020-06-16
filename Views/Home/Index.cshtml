@@ -6,28 +6,27 @@
 @model deliver_me_deliveries.Models.Restaurant;
 
 
-
+@* 
 
  @using (Html.BeginForm("GetAll", "RestaurantController"))
-{
-  @Html.Label("Street")
+{ *@
+  @* @Html.Label("Street")
   @Html.TextBoxFor(model => model.StreetAddress)
 
   @Html.Label("Food")
-  @Html.TextBoxFor(model => model.FoodTypes)
+  @Html.TextBoxFor(model => model.FoodTypes) *@
   
 
-  <input type="submit" value="Search"/>
+   @* <input type="submit" value="Search"/> *@
 } 
 <p>@Html.ActionLink("See all restaurants", "Index", "Restaurants")</p>
 
 
-
- @* public string StreetAddress { get; }
+@* 
     public string City { get; }
     public string State { get; }
     public string Zip { get; }
-    public List<string> FoodTypes { get; } *@
+    public List<string> FoodTypes { get; }  *@
     
 @* @using (Html.BeginForm())
 {    
