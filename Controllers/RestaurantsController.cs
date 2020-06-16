@@ -16,11 +16,12 @@ namespace deliver_me_deliveries.Controllers
 
         // GET api/Restaurant
        
-        public IActionResult Index()
-        {
-            var allRestaurants = Restaurant.GetRestaurants();
-            return View(allRestaurants["restaurants"]);
-        }
+    public IActionResult Index()
+    {
+      var allRestaurants = Restaurant.GetRestaurants();
+      return View(allRestaurants["restaurants"]);
+          
+    }
 
 
 // public class StudentController : ApiController
