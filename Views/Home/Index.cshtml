@@ -5,6 +5,45 @@
 
 @model deliver_me_deliveries.Models.Restaurant;
 
+<<<<<<< HEAD
+<div class="parent">
+ <div class="caropictures">
+ <div id="carouselExampleControls" class="carousel slide"   data-ride="carousel">
+ <div class="carousel-inner">
+     <div class="carousel-item active">
+     <img class="d-block w-100" src="img/slide1.jpg" alt="First slide">
+     </div>
+     <div class="carousel-item">
+     <img class="d-block w-100" src="img/slide2.webp" alt="Second slide">
+     </div>
+     <div class="carousel-item">
+     <img class="d-block w-100" src="img/slide3.jpg"  alt="Third slide">
+     </div>
+ </div>
+<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+</a>
+</div>
+<div class="bio">
+<h5>About:</h5>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex corrupti voluptas laboriosam sunt voluptatum nesciunt magni quidem eius! Modi quia vel, commodi nam veniam incidunt magni iusto perferendis ipsa labore.</p>
+</div>
+</div>
+ <div class="box">
+   <div class="searchBar">
+    @using (Html.BeginForm("GetAll", "RestaurantController"))
+    {
+    @Html.Label(" Search a location")
+    @Html.TextBoxFor(model => model.StreetAddress)
+
+    @Html.Label("Search for a food")
+    @Html.TextBoxFor(model => model.FoodTypes)
+=======
 
 @* 
 
@@ -27,15 +66,14 @@
     public string State { get; }
     public string Zip { get; }
     public List<string> FoodTypes { get; }  *@
+>>>>>>> 2a8c44676bdce7dc395b9fe4841404d074692b65
     
-@* @using (Html.BeginForm())
-{    
-    <h2>Title: @Html.TextBoxFor(model => model.StreetAddress)</h2>   
-    <input id="search" type="submit" value="Search" /> 
-}
 
-<h2>Title</h2>
-<h3>@Html.DisplayNameFor(model => model.StreetAddress): @Html.DisplayFor(model => model.StreetAddress)</h3>
+    <input type="submit" value="Search"/>
 
-<h2>Description</h2>
-<h3>@Html.DisplayNameFor(model => model.FoodTypes): @Html.DisplayFor(model => model.FoodTypes)</h3>   *@
+    } 
+  </div>
+  <p>@Html.ActionLink("See all restaurants", "Index", "Restaurants")</p>
+    
+ </div>
+</div>

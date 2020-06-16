@@ -1,0 +1,56 @@
+﻿body {
+  background-color: rgb(160, 59, 59);
+  font-family: Baskerville;
+}
+
+.footer{
+  background-color: rgb(255, 255, 255);
+}
+.headerTop{
+  background-color: rgb(255, 255, 255);
+}
+.parent{
+  display: flex;
+  margin-bottom: 60px;
+  
+}
+.box{
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  width: 70%;
+  box-shadow: 2px 2px 2px rgb(116, 8, 8);
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+}
+form{
+  display: flex;
+  flex-direction: column;
+}
+.caropictures{
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgb(116, 8, 8);
+  width: 30%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+.carousel{
+  width: 100%;
+  
+}
+.carousel-inner{
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+}
+.bio{
+  width: 90%;
+  margin: 10px;
+}
+a.nav-item {
+  color: rgb(100, 20, 20);
+}
+
