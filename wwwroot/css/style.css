@@ -27,10 +27,28 @@
   display: flex;
   flex-direction: column;
 }
-  form{
+form{
     display: flex;
     flex-direction: column;
-  }
+}
+  input{
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+button{
+  margin-bottom: 3px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+a, button{
+  background-color: rgb(255, 84, 53);
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px rgb(168, 28, 28);
+  margin: 4px;
+  transition: all .5s linear;
+  border-color: rgb(255, 84, 53);
+}
   .caropictures{
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
