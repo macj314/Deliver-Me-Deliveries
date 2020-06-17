@@ -15,6 +15,21 @@ namespace deliver_me_deliveries.Models
       return response.Content;
     }
 
+    public static async Task<string> GetDetails() //pass through id as well
+    {    
+      string ApiKey = "364155d9f18155ce884225aec137a02a852e59e584ee9c4a";
+      RestClient baseUrl = new RestClient("https://eatstreet.com/publicapi/v1");
+      RestRequest request = new RestRequest($"restaurant/{ApiKey}", Method.GET);
+      request.AddHeader("X-Access-Token", EnvironmentVariables.ApiKey);
+      // var response = await client.ExecuteTaskAsync(request);
+          
+      var response = await baseUrl.ExecuteTaskAsync(request);
+      Uri fullUrl = response.ResponseUri;
+      Console.WriteLine(string.Format("\n\n response URI: {0}", response.ResponseUri.ToString() + "\n\n")); //print url to console for testing
+
+      return response.Content;
+    }
+
     public static async Task<string> Search(string addressSearch, string extraTerm = "", string method = "both")
     {
       //set up RestSharp api variables
