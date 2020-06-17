@@ -21,14 +21,14 @@ namespace deliver_me_deliveries.Controllers
             var allRestaurants = Restaurant.GetRestaurants();
             return View(allRestaurants);
         }
-
+        // [HttpGet("{ApiKey}")]
          public IActionResult Details(string ApiKey)
          
         {
            
             var restaurant = Restaurant.GetDetails(ApiKey);
             
-            return View(restaurant);
+            return View("Details",restaurant);
         }
 
 
