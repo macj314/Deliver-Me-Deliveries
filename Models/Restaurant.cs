@@ -33,25 +33,17 @@ namespace deliver_me_deliveries.Models
       var result = apiCallTask.Result;
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse["restaurants"].ToString());
-
-      Console.WriteLine("\n\n Restaurant Name: {0} ApiKey {1}", restaurantList[0].Name, restaurantList[0].ApiKey + "\n\n");
-      Console.WriteLine("\n\n Restaurant Name: {0} ApiKey {1}", restaurantList[1].Name, restaurantList[1].ApiKey + "\n\n");
-      Console.WriteLine("\n\n Restaurant Name: {0} ApiKey {1}", restaurantList[2].Name, restaurantList[2].ApiKey + "\n\n");
       return restaurantList;
     }
 
-      public static Restaurant GetDetails(string ApiKey)
-      {        
-        var apiCallTask = ApiHelper.GetDetails();
-        var result = apiCallTask.Result;
-        Console.WriteLine("\n\n\n");
-        // Console.WriteLine(ApiKey);
-        Console.WriteLine("\n\n\n");
-        JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-        Restaurant restaurant = JsonConvert.DeserializeObject<Restaurant>(jsonResponse["restaurants"].ToString());
-
-        return restaurant;
-      }
+    public static Restaurant GetDetails(string ApiKey)
+    {        
+      var apiCallTask = ApiHelper.GetDetails();
+      var result = apiCallTask.Result;
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Restaurant restaurant = JsonConvert.DeserializeObject<Restaurant>(jsonResponse["restaurants"].ToString());
+      return restaurant;
+    }
 
     public static List<Restaurant> Search(string addressSearch, string extraTerm = "", string method = "both")
     {

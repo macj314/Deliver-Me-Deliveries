@@ -35,13 +35,14 @@
 </div>
  <div class="box">
    <div class="searchBar">
-    @using (Html.BeginForm("GetAll", "RestaurantController"))
+    @using (Html.BeginForm("Search", "RestaurantController"))
     {
-    @Html.Label(" Search a location")
-    @Html.TextBoxFor(model => model.StreetAddress)
-
+    @* @Html.Label(" Search a location") *@
+    <input type="text" name="streetAddress";/>
+    @* @Html.TextBoxFor(model => model.streetAddress) *@
+@* 
     @Html.Label("Search for a food")
-    @Html.TextBoxFor(model => model.FoodTypes)
+    @Html.TextBoxFor(model => model.FoodTypes) *@
     
 
     <input type="submit" value="Search"/>
