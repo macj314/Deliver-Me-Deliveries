@@ -35,9 +35,9 @@ namespace deliver_me_deliveries.Models
       return restaurantList;
     }
 
-    public static List<Restaurant> Search(string searchTerm)
+    public static List<Restaurant> Search(string addressSearch, string extraTerm = "", string method = "both")
     {
-      var apiCallTask = ApiHelper.Search(searchTerm);
+      var apiCallTask = ApiHelper.Search(addressSearch, extraTerm, method);
       var result = apiCallTask.Result;
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse["restaurants"].ToString());

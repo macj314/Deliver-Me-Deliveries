@@ -15,18 +15,21 @@ namespace deliver_me_deliveries.Models
       return response.Content;
     }
 
-    public static async Task<string> Search(string searchTerm)
+    public static async Task<string> Search(string addressSearch, string extraTerm = "", string method = "both")
     {
-      //set api call variables
-      RestClient baseRequest = new RestClient("https://eatstreet.com/publicapi/v1/search");
-      RestRequest request = new RestRequest($"?street-address={searchTerm}", Method.GET);
-      request.AddHeader("X-Access-Token", EnvironmentVariables.ApiKey);
-      var response = await baseRequest.ExecuteTaskAsync(request);
+      //set up RestSharp api variables
+      RestClient baseUrl = new RestClient("https://eatstreet.com/publicapi/v1/");
+      RestRequest request = new RestRequest($"restaurant/search?", Method.GET);
 
-      //print url to console
+      //additional parameters to add to the request
+      request.AddHeader("X-Access-Token", EnvironmentVariables.ApiKey); //authentication
+      if(extraTerm != ""){ request.AddQueryParameter("search", extraTerm); }  //extra search term
+      request.AddQueryParameter("method", method); //delivery/pickup/both
+      request.AddQueryParameter("street-address", addressSearch); //street address
+    
+      var response = await baseUrl.ExecuteTaskAsync(request);
       Uri fullUrl = response.ResponseUri;
-      Console.WriteLine(string.Format("response URI: {0}", response.ResponseUri.ToString()));
-
+      Console.WriteLine(string.Format("\n\n response URI: {0}", response.ResponseUri.ToString() + "\n\n")); //print url to console for testing
 
       return response.Content;
     }

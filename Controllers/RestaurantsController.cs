@@ -18,7 +18,7 @@ namespace deliver_me_deliveries.Controllers
        
         public IActionResult Index()
         {
-            var allRestaurants = Restaurant.GetRestaurants();
+            var allRestaurants = Restaurant.Search("Seattle");
             return View(allRestaurants);
         }
 
