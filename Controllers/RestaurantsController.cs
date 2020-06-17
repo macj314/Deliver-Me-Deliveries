@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using deliver_me_deliveries.Models;
 using Microsoft.AspNetCore.Authorization;
 using System;
+using PagedList;
+using PagedList.Mvc;
 
 namespace deliver_me_deliveries.Controllers
 {
@@ -18,10 +20,32 @@ namespace deliver_me_deliveries.Controllers
        
         public IActionResult Index()
         {
+            
+            // int pageNumber = (page ?? 1);
+            // int pageSize = 10;
+            // ViewBag.Page = (pageNumber).ToString();
             var allRestaurants = Restaurant.GetRestaurants();
-            return View();
+            return View(allRestaurants);
         }
+        //   public IActionResult Page(string page)
+        // {
+          
+        //   var allRestaurants = Restaurant.GetRestaurants();
+        // int pageSize = 10;
+        //   ViewBag.Page = (int.Parse(page)+1).ToString();
+        //   ViewBag.PageSize = 10;
+        //   return View("Index", allRestaurants.ToPagedList(ViewBag.Page,pageSize));
+        // }
 
+        [HttpGet]
+        public IActionResult GetAll()
+        {     
+          var allRestaurants = Restaurant.GetRestaurants();
+          return View("Index", allRestaurants);
+        }
+       
+    }
+}
 
 // public class StudentController : ApiController
 // {
@@ -59,14 +83,3 @@ namespace deliver_me_deliveries.Controllers
 //         return Ok(students);
 //     }
 // }
-
-        [HttpGet]
-        public IActionResult GetAll()
-        {     
-          var allRestaurants = Restaurant.GetRestaurants();
-          return View("Index", allRestaurants);
-        }
-
-    
-    }
-}

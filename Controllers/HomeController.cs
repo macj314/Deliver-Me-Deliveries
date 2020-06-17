@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace deliver_me_deliveries.Controllers
 {

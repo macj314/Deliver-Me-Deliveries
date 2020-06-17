@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using RestSharp;
 using System;
 
+
 namespace deliver_me_deliveries.Models
 {
   class ApiHelper
@@ -14,8 +15,20 @@ namespace deliver_me_deliveries.Models
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
+      public static async Task<string> GetPage(string apiKey, string page)
+    {
+      Console.WriteLine($"Page: {page} <========================");
+      RestClient client = new RestClient("https://eatstreet.com/publicapi/v1");
+      RestRequest request = new RestRequest($"restaurant/search?method=both&street-address=316+W.+Washington+Ave.+Madison+WI?page={page}", Method.GET);
+      request.AddHeader("X-Access-Token", apiKey);
+      var response = await client.ExecuteTaskAsync(request);
+      
+      return response.Content;
+    }
+     
   }
 }
+
     //     "latitude": 43.0728649,
     //     "longitude": -89.38809499999999,
     //     "city": "Madison",

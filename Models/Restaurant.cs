@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Reflection;
+
+
 
 
 namespace deliver_me_deliveries.Models
@@ -17,24 +18,34 @@ namespace deliver_me_deliveries.Models
     public string Zip { get; set; }
     public List<string> FoodTypes { get; set; }
     public string Phone { get; set; }
-    // public string minFreeDelivery { get; set; }
-    // public bool offersPickup { get; set; }
-    // public bool offersDelivery { get; set; }
-    // public bool open { get; set; }
-    // public string url { get; set; }
-    // public string hours { get; set; }
-    // public string deliveryMin { get; set; }
-    // public string logoUrl { get; set; }
+    public string LogoUrl {get;set;}
+    public string ApiKey {get;set;}
+ 
 
     public static List<Restaurant> GetRestaurants()
     {
       var apiCallTask = ApiHelper.GetAll(EnvironmentVariables.ApiKey);
       var result = apiCallTask.Result;
-      // JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-      // var restaurantDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonResponse.ToString());
+
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse["restaurants"].ToString());
+      
+      Console.WriteLine("\n\n");
       return restaurantList;
     }
+    public static List<Restaurant> GetRestaurants(string page)
+    {
+      var apiCallTask = ApiHelper.GetPage(EnvironmentVariables.ApiKey,page);
+      var result = apiCallTask.Result;
+
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse["restaurants"].ToString());
+      
+      Console.WriteLine("\n\n");
+      return restaurantList;
+    }
+    
+      
+  
   }
 }
