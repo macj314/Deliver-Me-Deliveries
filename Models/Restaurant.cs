@@ -17,6 +17,10 @@ namespace deliver_me_deliveries.Models
     public string Zip { get; set; }
     public List<string> FoodTypes { get; set; }
     public string Phone { get; set; }
+    public string LogoUrl {get;set;}
+    public string ApiKey {get;set;}
+
+
     // public string minFreeDelivery { get; set; }
     // public bool offersPickup { get; set; }
     // public bool offersDelivery { get; set; }
@@ -34,7 +38,36 @@ namespace deliver_me_deliveries.Models
       // var restaurantDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonResponse.ToString());
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse["restaurants"].ToString());
+
+
+
+    
+
+  Console.WriteLine("\n\n\n");
+  Console.WriteLine(restaurantList[0].Name);
+  Console.WriteLine(restaurantList[0].ApiKey);
+  Console.WriteLine("\n\n\n");
+
+
+
       return restaurantList;
     }
+
+   
+
+
+    public static Restaurant GetDetails(string ApiKey)
+        {
+          
+            var apiCallTask = ApiHelper.GetDetails(ApiKey);
+            var result = apiCallTask.Result;
+            Console.WriteLine("\n\n\n");
+            // Console.WriteLine(ApiKey);
+            Console.WriteLine("\n\n\n");
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+            Restaurant restaurant = JsonConvert.DeserializeObject<Restaurant>(jsonResponse["restaurants"].ToString());
+
+            return restaurant;
+        }
   }
 }

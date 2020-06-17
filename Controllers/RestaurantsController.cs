@@ -19,7 +19,16 @@ namespace deliver_me_deliveries.Controllers
         public IActionResult Index()
         {
             var allRestaurants = Restaurant.GetRestaurants();
-            return View();
+            return View(allRestaurants);
+        }
+
+         public IActionResult Details(string ApiKey)
+         
+        {
+           
+            var restaurant = Restaurant.GetDetails(ApiKey);
+            
+            return View(restaurant);
         }
 
 
