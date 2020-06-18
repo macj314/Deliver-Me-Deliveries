@@ -17,18 +17,24 @@ namespace deliver_me_deliveries.Controllers
         // GET api/Restaurant
        
         public IActionResult Index()
-        {
+        {   //this returns System.Collections.Generic.List`1[deliver_me_deliveries.Models.Restaurant]
             var allRestaurants = Restaurant.GetRestaurants();
+
+
+            // Console.WriteLine("\n\n" + allRestaurants + "\n\n");
             return View(allRestaurants);
         }
-        // [HttpGet("{ApiKey}")]
+        [HttpGet("{ApiKey}")]
          public IActionResult Details(string ApiKey)
-         
+         //returns object deliver_me_deliveries.Models.Restaurant
         {
            
-            var restaurant = Restaurant.GetDetails(ApiKey);
+            var restaurant = Restaurant.GetDetail(ApiKey);
+
+          Console.WriteLine("\n\n" + restaurant + "\n\n");
+          //returns deliver_me_deliveries.Models.Restaurant
             
-            return View("Details",restaurant);
+            return View(restaurant);
         }
 
 

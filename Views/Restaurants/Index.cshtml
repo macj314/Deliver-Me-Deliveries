@@ -14,7 +14,7 @@
         <li>ApiKey:@restaurant.ApiKey</li>
         <li>Name: @restaurant.Name</li>
         <li>Street: @restaurant.StreetAddress</li>
-       <a href="/Restaurants/Details/@(restaurant.ApiKey)"><li><img src="@restaurant.LogoUrl" width="70px"></li></a>
+       @* <a href="/Restaurants/Details/@(restaurant.ApiKey)"><li><img src="@restaurant.LogoUrl" width="70px"></li></a> *@
        <p>@Html.ActionLink($"{restaurant.Name}", "Details", new { ApiKey = restaurant.ApiKey })</p>
       </ul>
       @* <a href="/Remedies/Details/@(remedy.RemedyId)"><p>View Details</p></a> *@

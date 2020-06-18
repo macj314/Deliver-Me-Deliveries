@@ -32,14 +32,19 @@ namespace deliver_me_deliveries.Models
 
     public static List<Restaurant> GetRestaurants()
     {
-      var apiCallTask = ApiHelper.GetAll(EnvironmentVariables.ApiKey);
+      var apiCallTask = ApiHelper.GetAll(EnvironmentVariables.apiKey);
       var result = apiCallTask.Result;
       // JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       // var restaurantDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonResponse.ToString());
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse["restaurants"].ToString());
-  
-      // Console.WriteLine("\n\n Restaurant Name: {0} ApiKey {1}", restaurantList[0].Name, restaurantList[0].ApiKey + "\n\n");
+//     foreach (var item in restaurantList)
+// {
+// Console.WriteLine(item.Name);
+// }
+
+
+//       Console.WriteLine( restaurantList );
       // Console.WriteLine("\n\n Restaurant Name: {0} ApiKey {1}", restaurantList[1].Name, restaurantList[1].ApiKey + "\n\n");
       // Console.WriteLine("\n\n Restaurant Name: {0} ApiKey {1}", restaurantList[2].Name, restaurantList[2].ApiKey + "\n\n");
 
@@ -47,17 +52,22 @@ namespace deliver_me_deliveries.Models
 
       return restaurantList;
     }
-
-    public static Restaurant GetDetails(string ApiKey)
+      //returns us an object deliver_me_deliveries.Models.Restaurant
+    public static Restaurant GetDetail(string ApiKey)
         {
           
             var apiCallTask = ApiHelper.GetDetails(ApiKey);
             var result = apiCallTask.Result;
-            Console.WriteLine("\n\n\n");
-            // Console.WriteLine(ApiKey);
-            Console.WriteLine("\n\n\n");
+      
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
             Restaurant restaurant = JsonConvert.DeserializeObject<Restaurant>(jsonResponse.ToString());
+
+
+            // Console.WriteLine("\n\n" + restaurant + "\n\n");
+            
+            Console.WriteLine("\n\n" + result + "\n\n");
+          
+            
 
             return restaurant;
         }
