@@ -31,7 +31,7 @@ namespace deliver_me_deliveries.Models
     }
 
         
-    public static async Task<string> Search(string addressSearch, string method, string extraTerm = "")
+    public static async Task<string> Search(string addressSearch, string extraTerm = "")
     {
       //set up RestSharp api variables
       RestClient baseUrl = new RestClient("https://eatstreet.com/publicapi/v1/");
@@ -40,7 +40,7 @@ namespace deliver_me_deliveries.Models
       //additional parameters to add to the request
       request.AddHeader("X-Access-Token", EnvironmentVariables.ApiKey); //authentication
       if(extraTerm != ""){ request.AddQueryParameter("search", extraTerm); }  //extra search term
-      request.AddQueryParameter("method", method); //delivery/pickup/both
+      request.AddQueryParameter("method", "delivery"); //delivery/pickup/both
       request.AddQueryParameter("street-address", addressSearch); //street address
     
       var response = await baseUrl.ExecuteTaskAsync(request);

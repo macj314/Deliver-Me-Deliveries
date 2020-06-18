@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Diagnostics;
-using PagedList;
-using PagedList.Mvc;
 
 namespace deliver_me_deliveries.Controllers
 {
@@ -16,9 +14,12 @@ namespace deliver_me_deliveries.Controllers
     {  
         public IActionResult Index()
         {
-            var allRestaurants = Restaurant.GetRestaurants();
+           
+           var allRestaurants = Restaurant.GetRestaurants();
             return View(allRestaurants);
         }
+     
+
         [HttpGet]
         
         public IActionResult GetAll()
@@ -27,9 +28,9 @@ namespace deliver_me_deliveries.Controllers
             return View("Index", allRestaurants);
         }
 
-        public IActionResult Search(string addressSearch, string method, string extraTerm = "")
+        public IActionResult Search(string addressSearch, string extraTerm = "")
         {        
-            var searchResults = Restaurant.Search(addressSearch, method, extraTerm);
+            var searchResults = Restaurant.Search(addressSearch, extraTerm);
             return View("Search", searchResults);
         }
         
