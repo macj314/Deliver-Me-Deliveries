@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Reflection;
-using System.Diagnostics;
 
 namespace deliver_me_deliveries.Models
 {
@@ -18,14 +15,6 @@ namespace deliver_me_deliveries.Models
     public List<string> FoodTypes { get; set; }
     public string Phone { get; set; }
     public string ApiKey { get; set; }
-    // public string minFreeDelivery { get; set; }
-    // public bool offersPickup { get; set; }
-    // public bool offersDelivery { get; set; }
-    // public bool open { get; set; }
-    // public string url { get; set; }
-    // public string hours { get; set; }
-    // public string deliveryMin { get; set; }
-    // public string logoUrl { get; set; }
 
     public static List<Restaurant> GetRestaurants()
     {
@@ -46,8 +35,7 @@ namespace deliver_me_deliveries.Models
     }
 
     public static List<Restaurant> Search(string addressSearch, string extraTerm = "")
-    {
-      
+    {     
       var apiCallTask = ApiHelper.Search(addressSearch, extraTerm);
       var result = apiCallTask.Result;
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
