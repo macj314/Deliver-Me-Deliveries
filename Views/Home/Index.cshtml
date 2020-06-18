@@ -4,7 +4,7 @@
 }
 
 @model deliver_me_deliveries.Models.Restaurant;
-
+@using System.Diagnostics
 <div class="parent">
  <div class="caropictures">
  <div id="carouselExampleControls" class="carousel slide"   data-ride="carousel">
@@ -35,21 +35,45 @@
 </div>
  <div class="box">
    <div class="searchBar">
-    @using (Html.BeginForm("Search", "RestaurantController"))
-    {
-    @* @Html.Label(" Search a location") *@
-    <input type="text" name="streetAddress";/>
-    @* @Html.TextBoxFor(model => model.streetAddress) *@
+  @using deliver_me_deliveries.Models;
+
+<form action="/Restaurants/Search" method="post">
+
+     <label for="addressSearch">Street Address</label>
+     <input id="addressSearch" name="addressSearch" type="text">
+
+     <label for="extraTerm">Search Term</label>
+     <input id="extraTerm" name="extraTerm" type="text">
+     
+     <label for ="method">Method of Delivery</label>
+     <select name="method" id ="method">
+        <option value="both">Both</option>
+        <option value="delivery">Delivery</option>
+        <option value="pickup">Pickup</option>
+     </select>
+
+     <button type="submit">Search</button>
+</form>
+@* @using (Html.BeginForm())
+{
+    <p>
+        Find by address: @Html.TextBox("adressSearch")  
+        <input type="submit" value="Search" id="search" /></p>
+} *@
+
+
 @* 
-    @Html.Label("Search for a food")
-    @Html.TextBoxFor(model => model.FoodTypes) *@
-    
+@{System.Diagnostics.Debug.WriteLine("\n\n\n" ,"sdfsfsdfsfsdf", "\n\n\n");}; *@
 
-    <input type="submit" value="Search"/>
+    <h3>Results:</h3>
+    <p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+    <p>@Html.DisplayNameFor(model => model.StreetAddress): @Html.DisplayFor(model => model.StreetAddress)</p>
 
-    } 
+    <p></p></p>
+</h3>
   </div>
   <p>@Html.ActionLink("See all restaurants", "Index", "Restaurants")</p>
+  <p>@Html.ActionLink("Search results", "Search", "Restaurants")</p>
     
  </div>
 </div>

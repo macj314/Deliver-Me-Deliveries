@@ -14,6 +14,12 @@ namespace deliver_me_deliveries.Controllers
             return View();
         }
 
+        // [HttpPost]
+        // public IActionResult Index(string streetAddress)
+        // {
+        //     return RedirectToAction("Restaurant", "Search", {streetAddress});
+        // }
+
         public IActionResult Privacy()
         {
             return View();
@@ -24,5 +30,6 @@ namespace deliver_me_deliveries.Controllers
         // {
         //     return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         // }
+
     }
 }

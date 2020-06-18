@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Reflection;
-
+using System.Diagnostics;
 
 namespace deliver_me_deliveries.Models
 {
@@ -45,9 +45,10 @@ namespace deliver_me_deliveries.Models
       return restaurant;
     }
 
-    public static List<Restaurant> Search(string addressSearch, string extraTerm = "", string method = "both")
+    public static List<Restaurant> Search(string addressSearch, string method, string extraTerm = "")
     {
-      var apiCallTask = ApiHelper.Search(addressSearch, extraTerm, method);
+      
+      var apiCallTask = ApiHelper.Search(addressSearch, method, extraTerm);
       var result = apiCallTask.Result;
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse["restaurants"].ToString());

@@ -25,12 +25,12 @@ namespace deliver_me_deliveries.Models
           
       var response = await baseUrl.ExecuteTaskAsync(request);
       Uri fullUrl = response.ResponseUri;
-      Console.WriteLine(string.Format("\n\n response URI: {0}", response.ResponseUri.ToString() + "\n\n")); //print url to console for testing
 
       return response.Content;
     }
 
-    public static async Task<string> Search(string addressSearch, string extraTerm = "", string method = "both")
+        
+    public static async Task<string> Search(string addressSearch, string method, string extraTerm = "")
     {
       //set up RestSharp api variables
       RestClient baseUrl = new RestClient("https://eatstreet.com/publicapi/v1/");
@@ -44,7 +44,6 @@ namespace deliver_me_deliveries.Models
     
       var response = await baseUrl.ExecuteTaskAsync(request);
       Uri fullUrl = response.ResponseUri;
-      Console.WriteLine(string.Format("\n\n response URI: {0}", response.ResponseUri.ToString() + "\n\n")); //print url to console for testing
 
       return response.Content;
     }
