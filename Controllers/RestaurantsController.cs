@@ -28,9 +28,9 @@ namespace deliver_me_deliveries.Controllers
             return View("Index", allRestaurants);
         }
 
-        public IActionResult Search(string addressSearch, string method, string extraTerm = "")
+        public IActionResult Search(string addressSearch, string extraTerm = "")
         {        
-            var searchResults = Restaurant.Search(addressSearch, method, extraTerm);
+            var searchResults = Restaurant.Search(addressSearch, extraTerm);
             return View("Search", searchResults);
         }
         
