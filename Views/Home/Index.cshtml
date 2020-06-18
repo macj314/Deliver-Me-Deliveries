@@ -36,28 +36,23 @@
 
 <form action="/Restaurants/Search" method="post">
 
+    <div class="searchBar">
      <label for="addressSearch">Street Address</label>
-   <div class="searchBar">
+     <label for="extraTerm">Search Term</label>
+    </div>
+    <div class="searchBar">
      <input id="addressSearch" name="addressSearch" type="text">
-
-                <label for="extraTerm">Search Term</label>
-                <input id="extraTerm" name="extraTerm" type="text">     
-     @* <label for="extraTerm">Search Term</label>
-     <input id="extraTerm" name="extraTerm" type="text">
-     
-     <label for ="method">Method of Delivery</label>
-     <select name="method" id ="method">
-        <option value="both">Both</option>
-        <option value="delivery">Delivery</option>
-        <option value="pickup">Pickup</option>
-     </select> *@
-     <button type="submit">Search</button>
- </div>
-
+     <input id="extraTerm" name="extraTerm" type="text">     
+    </div>
+   
+   <div class="center">
+     <button id="search" type="submit">Search</button>
 </form>
-
-
+  <button id="all">@Html.ActionLink("See all results", "Index", "Restaurants")</button>
+  </div>
+</div>
+ </div>
  
-  <p>@Html.ActionLink("See all restaurants", "Index", "Restaurants")</p>
+</div>
   
     

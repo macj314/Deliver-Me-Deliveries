@@ -61,7 +61,7 @@ button.accept-policy {
 .box{
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
-  width: 70%;
+  width: 60%;
   box-shadow: 2px 2px 2px rgb(116, 8, 8);
   padding: 60px;
   display: flex;
@@ -75,7 +75,11 @@ form{
 input{
   margin-bottom: 3px;
   margin-top: 3px;
+  margin-right: 3px;
   width: 500px;
+}
+label{
+  margin-right: 180px;
 }
 .searchBar{
   display: flex;
@@ -84,15 +88,33 @@ input{
 button{
   margin-bottom: 3px;
   margin-top: 3px;
-  width: 70px;
+  
   cursor: pointer;
+  overflow: wrap;
   background-color: rgb(243, 242, 242);
-  padding: 5px;
+  
   border-radius: 4px;
   box-shadow: 2px 2px 5px rgb(185, 184, 184);
-  margin: 4px;
+  
   transition: all .5s linear;
   border-color: rgb(243, 242, 242);
+}
+.center{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#search{
+  
+  width: 100%;
+  
+  
+}
+#all{
+ 
+  width: 100%;
+
 }
 
 .caropictures{
