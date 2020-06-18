@@ -33,6 +33,13 @@ namespace deliver_me_deliveries.Controllers
             var searchResults = Restaurant.Search(addressSearch, extraTerm);
             return View("Search", searchResults);
         }
+
+        [HttpGet("{ApiKey}")]
+        public IActionResult Details(string ApiKey)
+        {           
+          var restaurant = Restaurant.GetDetail(ApiKey);            
+          return View(restaurant);
+        }
         
     }
 }

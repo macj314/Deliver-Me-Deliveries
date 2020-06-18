@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Reflection;
-using System.Diagnostics;
 
 namespace deliver_me_deliveries.Models
 {
@@ -18,15 +15,7 @@ namespace deliver_me_deliveries.Models
     public List<string> FoodTypes { get; set; }
     public string Phone { get; set; }
     public string ApiKey { get; set; }
-    // public string minFreeDelivery { get; set; }
-    // public bool offersPickup { get; set; }
-    // public bool offersDelivery { get; set; }
-    // public bool open { get; set; }
-    // public string url { get; set; }
-    // public string hours { get; set; }
-    // public string deliveryMin { get; set; }
     public string LogoUrl { get; set; }
-
     public static List<Restaurant> GetRestaurants()
     {
       var apiCallTask = ApiHelper.GetAll(EnvironmentVariables.ApiKey);
@@ -36,18 +25,8 @@ namespace deliver_me_deliveries.Models
       return restaurantList;
     }
 
-    public static Restaurant GetDetails(string ApiKey)
-    {        
-      var apiCallTask = ApiHelper.GetDetails();
-      var result = apiCallTask.Result;
-      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-      Restaurant restaurant = JsonConvert.DeserializeObject<Restaurant>(jsonResponse["restaurants"].ToString());
-      return restaurant;
-    }
-
     public static List<Restaurant> Search(string addressSearch, string extraTerm = "")
-    {
-      
+    {     
       var apiCallTask = ApiHelper.Search(addressSearch, extraTerm);
       var result = apiCallTask.Result;
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
@@ -55,18 +34,13 @@ namespace deliver_me_deliveries.Models
       return restaurantList;
     }
 
-
-   
-
-    // public static Restaurant GetDetails(string ApiKey)
-    // {        
-    //   var apiCallTask = ApiHelper.GetDetails();
-    //   var result = apiCallTask.Result;
-    //   JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-    //   Restaurant restaurant = JsonConvert.DeserializeObject<Restaurant>(jsonResponse["restaurants"].ToString());
-    //   return restaurant;
-    // }
-
-    
+    public static Restaurant GetDetail(string ApiKey)
+    {     
+      var apiCallTask = ApiHelper.GetDetails(ApiKey);
+      var result = apiCallTask.Result;
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Restaurant restaurant = JsonConvert.DeserializeObject<Restaurant>(jsonResponse["restaurant"].ToString());
+      return restaurant;
+    }
   }
 }

@@ -1,4 +1,3 @@
-
 namespace deliver_me_deliveries.Models
 {
     public static class EnvironmentVariables

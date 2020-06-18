@@ -1,4 +1,4 @@
-﻿body {
+﻿ body {
   background-color: rgb(160, 59, 59);
   font-family: Baskerville;
   min-height: 768px;
@@ -50,9 +50,10 @@ button.accept-policy {
 }
 .headerTop{
   background-color: rgb(255, 255, 255);
-}
+} 
 .parent{
   display: flex;
+  flex-wrap: wrap;
   /* flex-direction: column; */
   margin-bottom: 60px;
   
