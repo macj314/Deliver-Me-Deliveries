@@ -5,11 +5,11 @@
 #### By _**Steven L., Jason M., Mai C.**_
 
 
-## Preview
 
-[![Landing Page Preview](url-for-img)]
 
-**[View Live Preview]**
+![Logo](./wwwroot/img/logo.png)
+
+
 
 ## Description
 
@@ -17,24 +17,19 @@ _This app was created to help users search for different delivery options availa
 
 ## Project Specifications
 
-* get eatstreat api implemented for searching for restaurants
+* Get eatstreat api implemented for searching for restaurants
 
-* get views and contollers working
+* Get views and contollers working
 
-* make a view for searching for restaurants 
+* Make a view for searching for restaurants 
 
-* make a view for restaurant details, possibly implement eatstreet api functionality for restaurant details and menu
+* Make a view for restaurant details, possibly implement eatstreet api functionality for restaurant details and menu
 
-* possibly implement authorization
+* Possibly implement authorization
 
-* once eatstreat is working, try to implement google maps 
+* Once eatstreat is working, try to implement google maps 
 
 
-<!-- | Behavior | Input | Output |
-|---|---|---|
-|   |   |   |
-|   |   |   |
-|   |   |   | -->
 
 ## Setup/Installation Requirements
 
@@ -43,10 +38,18 @@ _In Terminal:_
 * Navigate to where you want this application to be saved, i.e.:
 ```cd desktop```
 * Clone the file from GitHub with HTTPS
-```git clone https://github.com/kwicz/beep-boop.git```
+```git clone https://github.com/macj314/Deliver-Me-Deliveries```
 * Open file in your preferred text editor
-* On Mac: ```open -a {your text editor} beep-boop```
-* On Windows: ```beep-boop```
+* Get API Key from https://developers.eatstreet.com/account-management
+* Create EnviromentalVariables file in folder and store API Key there.
+* To install the necessary dependencies and start a local host, after replicating the database steps below run the following commands:
+```
+dotnet restore
+dotnet build
+dotnet run
+```
+
+
 
 _To Download Manually:_
 
@@ -54,7 +57,7 @@ _To Download Manually:_
 * Click green "Clone or Download" button.
 * Click "Download ZIP".
 * Click downloaded file to unzip.
-* Open folder called "beep-boop-master".
+* Open folder called "Deliver-Me-Deliveries".
 * Right click "index.html" and select your preferred browser or text editor.
 
 ## Known Bugs
@@ -63,14 +66,19 @@ _No known bugs at this time._
 
 ## Support and contact details
 
-_Have a bug or an issue with this application? [Open a new issue](https://github.com/kwicz/{repo-name}/issues) here on GitHub._
+_Have a bug or an issue with this application? [Open a new issue](https://github.com/macj314/{Deliver-Me-Deliveries}/issues) here on GitHub._
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+* C#
+* RESTFUL Methods
+* MVC
+* ASP.NET CORE
+* ASP.NET MVC
+* Git and Github
 
 ### License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-Copyright (c) 2020 **_Steven L., Jason M., Mai C._**ven L., Jason M., Mai C._**ven L., Jason M., Mai C._**ven L., Jason M., Mai C._**ven L., Jason M., Mai C._**ven L., Jason M., Mai C._**ven L., Jason M., Mai C._**
+Copyright (c) 2020 **_Steven L. , Jason M. , Mai C._**
