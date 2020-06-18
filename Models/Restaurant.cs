@@ -25,15 +25,6 @@ namespace deliver_me_deliveries.Models
       return restaurantList;
     }
 
-    public static Restaurant GetDetails(string ApiKey)
-    {        
-      var apiCallTask = ApiHelper.GetDetails();
-      var result = apiCallTask.Result;
-      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-      Restaurant restaurant = JsonConvert.DeserializeObject<Restaurant>(jsonResponse["restaurants"].ToString());
-      return restaurant;
-    }
-
     public static List<Restaurant> Search(string addressSearch, string extraTerm = "")
     {     
       var apiCallTask = ApiHelper.Search(addressSearch, extraTerm);
@@ -41,6 +32,15 @@ namespace deliver_me_deliveries.Models
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse["restaurants"].ToString());
       return restaurantList;
+    }
+
+    public static Restaurant GetDetail(string ApiKey)
+    {     
+      var apiCallTask = ApiHelper.GetDetails(ApiKey);
+      var result = apiCallTask.Result;
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Restaurant restaurant = JsonConvert.DeserializeObject<Restaurant>(jsonResponse["restaurant"].ToString());
+      return restaurant;
     }
   }
 }

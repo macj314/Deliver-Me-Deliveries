@@ -5,14 +5,15 @@
 <div id="parent">
 @using deliver_me_deliveries.Models;
 
-<ol>
-@foreach (Restaurant restaurant in Model)
-{
-    <ul>
+  <ol>
+    @foreach (Restaurant restaurant in Model)
+    {
+      <ul>
         <li>Name: @restaurant.Name</li>
         <li>Street: @restaurant.StreetAddress</li>
-    </ul>
-    <br>
-}
-</ol>
+      </ul>
+      <br>
+      <p>@Html.ActionLink($"{restaurant.Name}", "Details", new { ApiKey = restaurant.ApiKey })</p>
+    }
+  </ol>
 </div>

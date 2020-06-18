@@ -5,13 +5,14 @@
 <div id="parent">
 @using deliver_me_deliveries.Models;
 
-<ol>
-@foreach (Restaurant restaurant in Model)
-{
-    <ul>
+  <ol>
+    @foreach (Restaurant restaurant in Model)
+    {
+      <ul>
         <li>Name: @restaurant.Name</li>
         <li>Street: @restaurant.StreetAddress</li>
-    </ul>
-    <br>
-}
+      </ul>
+      <br>
+    }
+  </ol>
 </div>
