@@ -1,12 +1,5 @@
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using deliver_me_deliveries.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
-using System.Diagnostics;
 
 namespace deliver_me_deliveries.Controllers
 {
@@ -17,8 +10,7 @@ namespace deliver_me_deliveries.Controllers
            
            var allRestaurants = Restaurant.GetRestaurants();
             return View(allRestaurants);
-        }
-     
+        }    
 
         [HttpGet]
         
@@ -39,7 +31,6 @@ namespace deliver_me_deliveries.Controllers
         {           
           var restaurant = Restaurant.GetDetail(ApiKey);            
           return View(restaurant);
-        }
-        
+        }        
     }
 }

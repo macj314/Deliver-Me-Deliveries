@@ -16,6 +16,7 @@ namespace deliver_me_deliveries.Models
     public string Phone { get; set; }
     public string ApiKey { get; set; }
     public string LogoUrl { get; set; }
+    
     public static List<Restaurant> GetRestaurants()
     {
       var apiCallTask = ApiHelper.GetAll(EnvironmentVariables.ApiKey);

@@ -197,7 +197,13 @@ div.links{
 }
 .parent2{
   display: flex;
-  /* flex-direction: row; */
+  margin-bottom: 60px;
+  
+}
+.parent3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 60px;
   
 }
@@ -208,6 +214,21 @@ div.links{
   padding: 50px;
   display: flex;
   /* flex-direction: column; */
+}
+.box4{
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 475px;
+  width: 70%;
+  padding: 50px;
+  border-color:rgb(100, 20, 20);
+  padding: 50px;
+  margin-right: 10%;
+  margin-bottom: 10%;
+  box-shadow: 2px 2px 2px rgb(116, 8, 8);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
 }
 .searchInfo{
   padding: 50px;

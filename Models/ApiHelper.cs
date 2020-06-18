@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using RestSharp;
 
-
 namespace deliver_me_deliveries.Models
 {
   class ApiHelper

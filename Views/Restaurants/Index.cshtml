@@ -46,14 +46,12 @@ function initMap() {
             <h3><strong><em>@restaurant.Name</em></strong></h3>
             <h5>Address:</h5>
               <p>@restaurant.StreetAddress @restaurant.City, @restaurant.State @restaurant.Zip</p>
+              <p>@Html.ActionLink($"{restaurant.Name}", "Details", new { ApiKey = restaurant.ApiKey })</p>
           </div>
           <hr>
         }
         
         </div>
-    
-
     </div>
-
   </body>
 </html>

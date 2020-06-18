@@ -2,12 +2,18 @@
     Layout = "_Layout";
 }
 
-<div id="parent">
-  <ol>
-      <ul>
-          <li>Name: @Model.Name</li>
-          <li>Street: @Model.StreetAddress</li>
-      </ul>
-      <br>
-  </ol>
+<div id="parent3">
+  <div class="box4">
+    <div class="logo-margin2">
+      <img src="@Model.LogoUrl" width="150px">
+    </div>
+    <br>
+    <h3><strong><em>@Model.Name</em></strong></h3>
+    <h5>Address:</h5>
+      <p>@Model.StreetAddress @Model.City, @Model.State @Model.Zip</p>      
+    <h5>Contact:</h5>
+      <p>@Model.Phone</p>
+    </div>
+    <br>
+  </div>
 </div>
