@@ -8,38 +8,37 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Diagnostics;
 
+using PagedList;
+using PagedList.Mvc;
+
 namespace deliver_me_deliveries.Controllers
 {
     public class RestaurantsController : Controller
     {  
-        public IActionResult Index()
-        {
-           
-           var allRestaurants = Restaurant.GetRestaurants();
-            return View(allRestaurants);
-        }
-     
+      public IActionResult Index()
+      {       
+        var allRestaurants = Restaurant.GetRestaurants();
+        return View(allRestaurants);
+      }
+    
+      [HttpGet]        
+      public IActionResult GetAll()
+      {     
+          var allRestaurants = Restaurant.GetRestaurants();
+          return View("Index", allRestaurants);
+      }
 
-        [HttpGet]
-        
-        public IActionResult GetAll()
-        {     
-            var allRestaurants = Restaurant.GetRestaurants();
-            return View("Index", allRestaurants);
-        }
+      public IActionResult Search(string addressSearch, string extraTerm = "")
+      {        
+          var searchResults = Restaurant.Search(addressSearch, extraTerm);
+          return View("Search", searchResults);
+      }
 
-        public IActionResult Search(string addressSearch, string extraTerm = "")
-        {        
-            var searchResults = Restaurant.Search(addressSearch, extraTerm);
-            return View("Search", searchResults);
-        }
-
-        [HttpGet("{ApiKey}")]
-        public IActionResult Details(string ApiKey)
-        {           
-          var restaurant = Restaurant.GetDetail(ApiKey);            
-          return View(restaurant);
-        }
-        
+      [HttpGet("{ApiKey}")]
+      public IActionResult Details(string ApiKey)
+      {           
+        var restaurant = Restaurant.GetDetail(ApiKey);            
+        return View(restaurant);
+      }        
     }
 }

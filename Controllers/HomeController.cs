@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace deliver_me_deliveries.Controllers
 {
@@ -14,22 +16,9 @@ namespace deliver_me_deliveries.Controllers
             return View();
         }
 
-        // [HttpPost]
-        // public IActionResult Index(string streetAddress)
-        // {
-        //     return RedirectToAction("Restaurant", "Search", {streetAddress});
-        // }
-
         public IActionResult Privacy()
         {
             return View();
         }
-
-        // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        // public IActionResult Error()
-        // {
-        //     return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        // }
-
     }
 }

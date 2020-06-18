@@ -1,18 +1,36 @@
-@{
-    Layout = "_Layout";
-}
+<!DOCTYPE html>
+<html>
+  <head>
+     <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+  </head>
+  <body>
+    @using deliver_me_deliveries.Models;
 
-<div id="parent">
-@using deliver_me_deliveries.Models;
-
-  <ol>
+    <div id="parent2">
+    <div class="box3">
     @foreach (Restaurant restaurant in Model)
     {
-      <ul>
-        <li>Name: @restaurant.Name</li>
-        <li>Street: @restaurant.StreetAddress</li>
-      </ul>
-      <br>
+       <div class="searchInfo">
+       <div class="logo-margin2">
+         <img src="@restaurant.LogoUrl" width="150px">
+          </div>
+          <br>
+        <h3><strong><em>@restaurant.Name</em></strong></h3>
+        <h5>Address:</h5>
+        <p>@restaurant.StreetAddress @restaurant.City, @restaurant.State @restaurant.Zip</p>
+      
+        <h5>Contact:</h5>
+        <p>@restaurant.Phone</p>
+       </div>
+        <br>
+  
     }
-  </ol>
-</div>
+    </div>
+    </div>
+  </body>
+</html>
+@* public string City { get; set; }
+    public string State { get; set; }
+    public string Zip { get; set; }
+    public List<string> FoodTypes { get; set; }
+    public string Phone { get; set; } *@

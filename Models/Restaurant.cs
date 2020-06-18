@@ -15,6 +15,7 @@ namespace deliver_me_deliveries.Models
     public List<string> FoodTypes { get; set; }
     public string Phone { get; set; }
     public string ApiKey { get; set; }
+    public string LogoUrl { get; set; }
 
     public static List<Restaurant> GetRestaurants()
     {
@@ -33,7 +34,7 @@ namespace deliver_me_deliveries.Models
       List<Restaurant> restaurantList = JsonConvert.DeserializeObject<List<Restaurant>>(jsonResponse["restaurants"].ToString());
       return restaurantList;
     }
-
+    
     public static Restaurant GetDetail(string ApiKey)
     {     
       var apiCallTask = ApiHelper.GetDetails(ApiKey);
