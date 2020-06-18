@@ -2,3 +2,9 @@ bin/
 obj/
 environmentalvariables.cs/
 .history
+
+# exclude everything
+Restaurants/*
+
+# exception to the rule
+!Restaurants/.gitkeep 
