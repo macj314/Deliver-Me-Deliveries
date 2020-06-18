@@ -4,7 +4,7 @@
 }
 
 @model deliver_me_deliveries.Models.Restaurant;
-
+@using System.Diagnostics
 <div class="parent">
  <div class="caropictures">
  <div id="carouselExampleControls" class="carousel slide"   data-ride="carousel">
@@ -34,21 +34,31 @@
 </div>
 </div>
  <div class="box">
+
+
+<form action="/Restaurants/Search" method="post">
+
+     <label for="addressSearch">Street Address</label>
    <div class="searchBar">
-    @using (Html.BeginForm("GetAll", "RestaurantController"))
-    {
-    @Html.Label(" Search a location")
-    @Html.TextBoxFor(model => model.StreetAddress)
+     <input id="addressSearch" name="addressSearch" type="text">
 
-    @Html.Label("Search for a food")
-    @Html.TextBoxFor(model => model.FoodTypes)
-    
-
-    <input type="submit" value="Search"/>
-
-    } 
-  </div>
-  <p>@Html.ActionLink("See all restaurants", "Index", "Restaurants")</p>
-    
+     @* <label for="extraTerm">Search Term</label>
+     <input id="extraTerm" name="extraTerm" type="text">
+     
+     <label for ="method">Method of Delivery</label>
+     <select name="method" id ="method">
+        <option value="both">Both</option>
+        <option value="delivery">Delivery</option>
+        <option value="pickup">Pickup</option>
+     </select> *@
+     <button type="submit">Search</button>
  </div>
+
+</form>
+
+
+ 
+  <p>@Html.ActionLink("See all restaurants", "Index", "Restaurants")</p>
+  
+    
 </div>
