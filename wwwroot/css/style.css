@@ -105,16 +105,18 @@ button{
   flex-direction: column;
   justify-content: center;
 }
+#intro{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 #search{
-  
   width: 100%;
-  
   
 }
 #all{
- 
   width: 100%;
-
 }
 
 .caropictures{
@@ -129,7 +131,6 @@ button{
 }
 .carousel{
   width: 100%;
-  
 }
 .carousel-inner{
   width: 100%;
@@ -181,9 +182,10 @@ div.logo-margin{
 }
 hr{
   border-style: solid;
-  display: block; 
-  /* margin-before: 0.5em;
-  margin-: 0.5em;  */
+  display: block;
+  border-color: black; 
+  color: black;
+  background-color: black;
   margin-inline-start: auto; 
   margin-inline-end: auto; 
   overflow: hidden; 
